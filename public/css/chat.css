@@ -1,5 +1,6 @@
 #posts {
     height: 750px;
+    overflow-y: auto;
 }
 
 .username {

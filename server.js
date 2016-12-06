@@ -29,7 +29,7 @@ wsServer.on('request', function (request) {
     connections.push(connection);
 
     connection.on('message', function(message) {
-        console.log('Received Message: ' + message.utf8Data);
+        //console.log('Received Message: ' + message.utf8Data);
         var name = message.utf8Data.split(" ")[0];
         var text = message.utf8Data.split(" ")[1];
         for (currConnection of connections) {
