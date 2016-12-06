@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Sagie501/FirstNodeJs#readme",
   "dependencies": {
-    "node-static": "^0.7.9"
+    "node-static": "^0.7.9",
+    "websocket": "^1.0.23"
   }
 }

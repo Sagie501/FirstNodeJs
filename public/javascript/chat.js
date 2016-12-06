@@ -1,4 +1,4 @@
-var textColor = "black";
+/*var textColor = "black";
 var classesToAdd = [];
 
 document.getElementById("username").addEventListener("blur", function () {
@@ -105,4 +105,4 @@ var setItalic = function () {
     } else {
         classesToAdd.push("italic");
     }
-};
+};*/
