@@ -1,0 +1,20 @@
+{
+  "name": "nodechat",
+  "version": "1.0.0",
+  "description": "\"# FirstNodeJs\" \r \"# FirstNodeJs\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sagie501/FirstNodeJs.git"
+  },
+  "author": "Sagie Ivan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sagie501/FirstNodeJs/issues"
+  },
+  "homepage": "https://github.com/Sagie501/FirstNodeJs#readme",
+  "dependencies": {}
+}
