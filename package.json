@@ -16,5 +16,7 @@
     "url": "https://github.com/Sagie501/FirstNodeJs/issues"
   },
   "homepage": "https://github.com/Sagie501/FirstNodeJs#readme",
-  "dependencies": {}
+  "dependencies": {
+    "node-static": "^0.7.9"
+  }
 }
