@@ -2,7 +2,7 @@
 var textColor = "black";
 var classesToAdd = [];
 
-var connection = new WebSocket('ws://10.103.50.249:8000');
+var connection = new WebSocket('ws://10.0.0.12:8080');
 
 var name = document.getElementById("username");
 var text = document.getElementById("message");
@@ -38,8 +38,8 @@ connection.onmessage = function (message) {
       var messageP = document.createElement("span");
       //messageP.style["color"] = jsonMessage.color;
 
-      for (var index = 0; index < classesToAdd.length; index++) {
-          messageP.style[classesToAdd[index].property] = classesToAdd[index].value;
+      for (var index = 0; index < jsonMessage.classesToAdd.length; index++) {
+          messageP.style[jsonMessage.classesToAdd[index].property] = jsonMessage.classesToAdd[index].value;
       }
 
       userNameP.innerHTML = jsonMessage.name + ": ";
@@ -64,7 +64,7 @@ function sendMessage() {
             connection.send(JSON.stringify({
                 name: validXSS(document.getElementById("username").value),
                 text: validXSS(document.getElementById("message").value),
-                color: textColor
+                classToAdd: classesToAdd
             }));
         }
         document.getElementById("message").value = "";

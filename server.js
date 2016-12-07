@@ -5,7 +5,7 @@ var webSocket = require('websocket').server;
 var fileServer = new static.Server('./public/');
 var connections = [];
 
-const PORT = 8000;
+const PORT = 8080;
 
 var server = http.createServer(function (request, response) {
     request.addListener('end', function () {
@@ -37,7 +37,7 @@ wsServer.on('request', function (request) {
             currConnection.sendUTF(JSON.stringify({
                 name: messageData.name,
                 text: messageData.text,
-                color: messageData.color
+                classesToAdd: messageData.classToAdd
             }));
         }
     });
