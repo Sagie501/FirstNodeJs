@@ -30,10 +30,15 @@ wsServer.on('request', function (request) {
 
     connection.on('message', function(message) {
         //console.log('Received Message: ' + message.utf8Data);
-        var name = message.utf8Data.split(" ")[0];
-        var text = message.utf8Data.split(" ")[1];
+       // var name = message.utf8Data.split(" ")[0];
+        //var text = message.utf8Data.split(" ")[1];
+        var messageData = JSON.parse(message.utf8Data);
         for (currConnection of connections) {
-            currConnection.sendUTF(JSON.stringify({name: name, text: text}));
+            currConnection.sendUTF(JSON.stringify({
+                name: messageData.name,
+                text: messageData.text,
+                color: messageData.color
+            }));
         }
     });
     connection.on('close', function(reasonCode, description) {
