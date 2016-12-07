@@ -35,12 +35,11 @@ connection.onmessage = function (message) {
       rowDiv.classList.add("row");
       var userNameP = document.createElement("span");
       userNameP.classList.add("username");
-      userNameP.style["color"] = jsonMessage.color;
       var messageP = document.createElement("span");
-      messageP.style["color"] = jsonMessage.color;
+      //messageP.style["color"] = jsonMessage.color;
 
       for (var index = 0; index < classesToAdd.length; index++) {
-          messageP.classList.add(classesToAdd[index]);
+          messageP.style[classesToAdd[index].property] = classesToAdd[index].value;
       }
 
       userNameP.innerHTML = jsonMessage.name + ": ";
@@ -106,25 +105,35 @@ var command = function (command) {
 };
 
 var setColor = function (color) {
-    textColor = color;
+    classesToAdd.push({property: "color", value: color});
 };
 
 var setBold = function () {
-    var index = classesToAdd.indexOf("bold");
+    var index = checkObjectInArray("font-weight", "bold");
 
     if (index > -1) {
         classesToAdd.splice(index, 1);
     } else {
-        classesToAdd.push("bold");
+        classesToAdd.push({property: "font-weight", value: "bold"});
     }
 };
 
 var setItalic = function () {
-    var index = classesToAdd.indexOf("italic");
+    var index = checkObjectInArray("font-style", "italic");
 
     if (index > -1) {
         classesToAdd.splice(index, 1);
     } else {
-        classesToAdd.push("italic");
+        classesToAdd.push({property: "font-style", value: "italic"});
     }
-};})();
+};
+
+var checkObjectInArray = function (pro, val) {
+    for (var index = 0; index < classesToAdd.length; index++) {
+        if (classesToAdd[index].property === pro && classesToAdd[index].value === val) {
+            return index;
+        }
+        return -1;
+    }
+};
+})();
